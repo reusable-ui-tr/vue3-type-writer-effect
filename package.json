@@ -1,12 +1,13 @@
 {
-  "name": "vue3-type-writer-effect",
+  "name": "@reusable-ui-tr/vue3-type-writer-effect",
   "version": "1.0.0",
   "description": "A Vue 3 component for creating a typewriter effect with customizable options.",
   "keywords": [
     "vue3",
     "vue-type-writer-effect",
     "type-writer-effect",
-    "semih-ataman"
+    "semih-ataman",
+    "reusable-ui-tr"
   ],
   "author": "Semih Ataman",
   "type": "module",
@@ -28,6 +29,10 @@
     "build": "vite build && vue-tsc --emitDeclarationOnly",
     "types": "vue-tsc ",
     "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reusable-ui-tr/vue3-type-writer-effect.git"
   },
   "dependencies": {
     "vue": "^3.2.47"
