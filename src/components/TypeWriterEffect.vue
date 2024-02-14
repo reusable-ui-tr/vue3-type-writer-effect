@@ -25,13 +25,17 @@ interface ITypingSpeedMap {
 }
 
 const props = defineProps({
+  backgroundColor: {
+    type: String,
+    default: 'transparent',
+  },
   blinkDuration: {
     type: String as PropType<TBlinkDuration>,
     default: '1s' as TBlinkDuration,
   },
   cursorColor: {
     type: String,
-    default: 'white',
+    default: 'black',
   },
   elementType: {
     type: String,
@@ -39,11 +43,11 @@ const props = defineProps({
   },
   fontFamily: {
     type: String,
-    default: 'sans-serif',
+    default: 'Roboto, Arial, sans-serif'
   },
   fontSize: {
     type: String,
-    default: '15px',
+    default: '16px'
   },
   text: {
     type: String,
@@ -64,9 +68,10 @@ const isAnimationInProgress = ref(false);
 const animationRepeatCount = ref<number | string>(0);
 
 const computedStyle = {
-  fontFamily: props.fontFamily,
-  fontSize: props.fontSize,
+  backgroundColor: props.backgroundColor,
   color: props.textColor,
+  fontFamily: props.fontFamily,
+  fontSize: props.fontSize
 };
 
 const typingSpeedMap: ITypingSpeedMap = {
@@ -84,13 +89,13 @@ const typingEffectTimeOut = ref(() => {
 
 onMounted(() => {
   const typeEffect = () => {
-    if (typeLine.value.length < props.text.length) {
-      typeLine.value += props.text.charAt(typeLine.value.length);
-      setTimeout(typeEffect, typingEffectTimeOut.value());
-      isAnimationInProgress.value = true;
-    } else {
-      isAnimationInProgress.value = false;
+    isAnimationInProgress.value = typeLine.value.length < props.text.length;
+    if (!isAnimationInProgress) {
+      return;
     }
+
+    typeLine.value += props.text.charAt(typeLine.value.length);
+    setTimeout(typeEffect, typingEffectTimeOut.value());
   };
 
   typeEffect();
@@ -109,13 +114,11 @@ watch(() => isAnimationInProgress.value, (newValue) => {
   margin: 0 auto;
   width: fit-content;
   height: fit-content;
-  background-color: inherit;
 }
 
 .typingEffect__line {
   animation: blink v-bind("$props.blinkDuration") v-bind("animationRepeatCount");
   padding: 0;
-  background-color: inherit;
   border-right: 2px solid transparent;
 }
 
