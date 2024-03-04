@@ -48,15 +48,15 @@ import TypeWriterEffect from '@reusable-ui-tr/vue3-type-writer-effect';
 
 ```html
 <TypeWriterEffect 
-    blinkDuration='2s' 
-    cursorColor='blue' 
-    fontFamily='Lucida Console' 
-    fontSize='20px' 
-    highlightColor='green'
+    blink-duration='2s' 
+    cursor-color='blue' 
+    font-family='Lucida Console' 
+    font-size='20px' 
+    highlight-color='green'
     text='Hello World!' 
-    textColor='white' 
-    textWrapperElementType='p' 
-    typingSpeed='slow' 
+    text-color='white' 
+    text-wrapper-element-type='p' 
+    typing-speed='slow' 
 />
 ```
 
@@ -64,15 +64,15 @@ import TypeWriterEffect from '@reusable-ui-tr/vue3-type-writer-effect';
 
 | Property Name   | Property Type   | Usage                                                                | Default Value | Required | 
 | :-------------- | :-------------- | :------------------------------------------------------------------- | :-----: | :------: |
-| blinkDuration   |  String         | Blink duration of typewriter effect in seconds or milliseconds (Example values: '1s', '10ms' etc.)                                                      | '1s' |    no    |
-| cursorColor     |  String         | All CSS legal color values are supported. (Example values: '#00ff00', #00ff0080, rgb(0, 255, 0), rgba(0, 255, 0, 0.3), hsl(120, 60%, 70%), hsla(120, 60%, 70%, 0.3), 'green' etc.)               |  'black'   |    no    |
-| fontFamily      |  String         | Font family of the text                 |  'Roboto, Arial, sans-serif'   |    no    |
-| fontSize        |  String         | Font size of the text                               |  '16px'   |    no    |
-| highlightColor |  String          | Highlight color of the text                                |  'transparent'   |    no    |
+| blink-duration   |  String         | Blink duration of typewriter effect in seconds or milliseconds (Example values: '1s', '10ms' etc.)                                                      | '1s' |    no    |
+| cursor-color     |  String         | All CSS legal color values are supported. (Example values: '#00ff00', #00ff0080, rgb(0, 255, 0), rgba(0, 255, 0, 0.3), hsl(120, 60%, 70%), hsla(120, 60%, 70%, 0.3), 'green' etc.)               |  'black'   |    no    |
+| font-family      |  String         | Font family of the text                 |  'Roboto, Arial, sans-serif'   |    no    |
+| font-size        |  String         | Font size of the text                               |  '16px'   |    no    |
+| highlight-color |  String          | Highlight color of the text                                |  'transparent'   |    no    |
 | text            |  String         | Content of the text                                                      |  none   |   yes    |
-| textColor       |  String         | All CSS legal color values are supported. (Example values: '#00ff00', #00ff0080, rgb(0, 255, 0), rgba(0, 255, 0, 0.3), hsl(120, 60%, 70%), hsla(120, 60%, 70%, 0.3), 'green' etc.)               |  'black'   |    no    |
-| textWrapperElementType     |  String         | Type of HTML element to wrap text (All HTML elements are valid) |  'code'   |    no    |
-| typingSpeed     |  String         | Typing speed of typewriter effect (Only following keywords are valid: 'slowest', 'slow', normal', 'fast', 'fastest') | 'normal'   |    no    | 
+| text-color       |  String         | All CSS legal color values are supported. (Example values: '#00ff00', #00ff0080, rgb(0, 255, 0), rgba(0, 255, 0, 0.3), hsl(120, 60%, 70%), hsla(120, 60%, 70%, 0.3), 'green' etc.)               |  'black'   |    no    |
+| text-wrapper-element-type     |  String         | Type of HTML element to wrap text (All HTML elements are valid) |  'code'   |    no    |
+| typing-speed     |  String         | Typing speed of typewriter effect (Only following keywords are valid: 'slowest', 'slow', normal', 'fast', 'fastest') | 'normal'   |    no    | 
 
 ## Dependencies
 
