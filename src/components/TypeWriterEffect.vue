@@ -1,6 +1,6 @@
 <template>
   <div class="typingEffect">
-    <component :is="elementType" class="typingEffect__line" :style="computedStyle">
+    <component :is="textWrapperElementType" class="typingEffect__line" :style="computedStyle">
       {{ typeLine }}
     </component>
   </div>
@@ -25,10 +25,6 @@ interface ITypingSpeedMap {
 }
 
 const props = defineProps({
-  backgroundColor: {
-    type: String,
-    default: 'transparent',
-  },
   blinkDuration: {
     type: String as PropType<TBlinkDuration>,
     default: '1s' as TBlinkDuration,
@@ -36,10 +32,6 @@ const props = defineProps({
   cursorColor: {
     type: String,
     default: 'black',
-  },
-  elementType: {
-    type: String,
-    default: 'code',
   },
   fontFamily: {
     type: String,
@@ -49,13 +41,21 @@ const props = defineProps({
     type: String,
     default: '16px'
   },
+  highlightColor: {
+    type: String,
+    default: 'transparent',
+  },
   text: {
     type: String,
-    default: '',
+    required: true
   },
   textColor: {
     type: String,
     default: 'black',
+  },
+  textWrapperElementType: {
+    type: String,
+    default: 'code',
   },
   typingSpeed: {
     type: String as PropType<TTypingSpeed>,
@@ -68,7 +68,7 @@ const isAnimationInProgress = ref(false);
 const animationRepeatCount = ref<number | string>(0);
 
 const computedStyle = {
-  backgroundColor: props.backgroundColor,
+  backgroundColor: props.highlightColor,
   color: props.textColor,
   fontFamily: props.fontFamily,
   fontSize: props.fontSize
