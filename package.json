@@ -1,6 +1,6 @@
 {
   "name": "@reusable-ui-tr/vue3-type-writer-effect",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A Vue 3 component for creating a typewriter effect with customizable options.",
   "keywords": [
     "vue3",
