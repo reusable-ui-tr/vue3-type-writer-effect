@@ -19,12 +19,12 @@
   "module": "./dist/vue3-type-writer-effect.js",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/vue3-type-writer-effect.js",
       "require": "./dist/vue3-type-writer-effect.umd.cjs"
     },
     "./style.css": "./dist/style.css"
   },
-  "types": "./dist/index.d.ts",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
