@@ -12,7 +12,8 @@
   "author": "Semih Ataman",
   "type": "module",
   "files": [
-    "dist"
+    "dist",
+    "src/components/"
   ],
   "main": "./dist/vue3-type-writer-effect.umd.cjs",
   "module": "./dist/vue3-type-writer-effect.js",
@@ -26,7 +27,7 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && vue-tsc --emitDeclarationOnly",
+    "build": "vue-tsc && vite build",
     "types": "vue-tsc ",
     "preview": "vite preview"
   },
@@ -35,6 +36,9 @@
     "url": "https://github.com/reusable-ui-tr/vue3-type-writer-effect.git"
   },
   "dependencies": {
+    "vue": "^3.2.47"
+  },
+  "peerDependencies": {
     "vue": "^3.2.47"
   },
   "devDependencies": {

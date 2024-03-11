@@ -2,11 +2,13 @@ import { defineConfig } from "vite";
 import { resolve } from "path";
 import vue from "@vitejs/plugin-vue";
 import autoprefixer from "autoprefixer";
-import libCss from 'vite-plugin-libcss';
+import libCss from "vite-plugin-libcss";
+import dts from "vite-plugin-dts";
+import * as path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(), libCss()],
+  plugins: [vue(), libCss(), dts()],
   css: {
     postcss: {
       plugins: [
@@ -35,4 +37,9 @@ export default defineConfig({
       },
     },
   },
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "src")
+    }
+  }
 });
