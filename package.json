@@ -12,8 +12,7 @@
   "author": "Semih Ataman",
   "type": "module",
   "files": [
-    "dist",
-    "src/components/"
+    "dist"
   ],
   "main": "./dist/vue3-type-writer-effect.umd.cjs",
   "module": "./dist/vue3-type-writer-effect.js",
