@@ -43,7 +43,6 @@
   "devDependencies": {
     "@types/node": "^20.2.5",
     "@vitejs/plugin-vue": "^4.2.3",
-    "autoprefixer": "^10.4.17",
     "typescript": "^5.0.2",
     "vite": "^4.3.9",
     "vite-plugin-dts": "^3.7.3",

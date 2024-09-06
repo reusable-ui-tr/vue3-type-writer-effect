@@ -18,33 +18,13 @@ Click <a href="https://stackblitz.com/edit/vue3-vite-starter-hy19bv?file=src%2FA
 npm i @reusable-ui-tr/vue3-type-writer-effect
 ```
 
-2. Install 'autoprefixer' with npm
-
-```
-npm i autoprefixer
-```
-
-3. Import the autoprefixer package into vite.config.ts and add the autoprefixer plugin to the defineConfig function
-
-```javascript
-import autoprefixer from "autoprefixer";
-
-export default defineConfig({
-  css: {
-    postcss: {
-      plugins: [autoprefixer],
-    },
-  },
-});
-```
-
-4. Import TypeWriterEffect component in your vue3 component
+2. Import TypeWriterEffect component in your vue3 component
 
 ```javascript
 import TypeWriterEffect from "@reusable-ui-tr/vue3-type-writer-effect";
 ```
 
-5. Use 'TypeWriterEffect' component inside a template
+3. Use 'TypeWriterEffect' component inside a template
 
 ```html
 <TypeWriterEffect
@@ -82,8 +62,8 @@ import TypeWriterEffect from "@reusable-ui-tr/vue3-type-writer-effect";
 
 - [@types/node](https://www.npmjs.com/package/@types/node)
 - [@vitejs/plugin-vue](https://www.npmjs.com/package/@vitejs/plugin-vue)
-- [autoprefixer](https://www.npmjs.com/package/autoprefixer)
 - [typescript](https://www.npmjs.com/package/typescript)
 - [vite](https://www.npmjs.com/package/vite)
+- [vite-plugin-dts](https://www.npmjs.com/package/vite-plugin-dts)
 - [vite-plugin-libcss](https://www.npmjs.com/package/vite-plugin-libcss)
 - [vue-tsc](https://www.npmjs.com/package/vue-tsc)

@@ -1,7 +1,6 @@
 import { defineConfig } from "vite";
 import { resolve } from "path";
 import vue from "@vitejs/plugin-vue";
-import autoprefixer from "autoprefixer";
 import libCss from "vite-plugin-libcss";
 import dts from "vite-plugin-dts";
 import * as path from "path";
@@ -9,13 +8,6 @@ import * as path from "path";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue(), libCss(), dts()],
-  css: {
-    postcss: {
-      plugins: [
-          autoprefixer
-      ],
-    }
-  },
   build: {
     lib: {
       // src/indext.ts is where we have exported the component(s)
