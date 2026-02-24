@@ -1,24 +1,22 @@
 <template>
   <div class="typingEffect">
-    <component :is="textWrapperElementType" class="typingEffect__line" :style="computedStyle">
+    <component
+      :is="textWrapperElementType"
+      class="typingEffect__line"
+      :style="computedStyle"
+    >
       {{ typeLine }}
     </component>
   </div>
 </template>
 
 <script setup lang="ts">
-import {
-  ref,
-  onMounted,
-  defineProps,
-  watch,
-} from 'vue';
-import type { PropType } from 'vue';
+import { ref, onMounted, defineProps, watch, computed } from "vue";
+import type { PropType } from "vue";
 
-type TBlinkDuration =
-  `${number}${'s' | 'ms'}`;
+type TBlinkDuration = `${number}${"s" | "ms"}`;
 
-type TTypingSpeed = 'fastest' | 'fast' | 'normal' | 'slow' | 'slowest';
+type TTypingSpeed = "fastest" | "fast" | "normal" | "slow" | "slowest";
 
 interface ITypingSpeedMap {
   [key: string]: number;
@@ -27,43 +25,47 @@ interface ITypingSpeedMap {
 const props = defineProps({
   blinkDuration: {
     type: String as PropType<TBlinkDuration>,
-    default: '1s' as TBlinkDuration,
+    default: "1s" as TBlinkDuration,
   },
   cursorColor: {
     type: String,
-    default: 'black',
+    default: "black",
   },
   fontFamily: {
     type: String,
-    default: 'Roboto, Arial, sans-serif'
+    default: "Roboto, Arial, sans-serif",
   },
   fontSize: {
     type: String,
-    default: '16px'
+    default: "16px",
   },
   highlightColor: {
     type: String,
-    default: 'transparent',
+    default: "transparent",
   },
   text: {
     type: String,
-    required: true
+    required: true,
   },
   textColor: {
     type: String,
-    default: 'black',
+    default: "black",
   },
   textWrapperElementType: {
     type: String,
-    default: 'code',
+    default: "code",
   },
   typingSpeed: {
     type: String as PropType<TTypingSpeed>,
-    default: 'normal' as TTypingSpeed,
+    default: "normal" as TTypingSpeed,
   },
 });
 
-const typeLine = ref('');
+const emit = defineEmits<{
+  (e: "typeEnded"): void;
+}>();
+
+const typeLine = ref("");
 const isAnimationInProgress = ref(false);
 const animationRepeatCount = ref<number | string>(0);
 
@@ -71,7 +73,7 @@ const computedStyle = {
   backgroundColor: props.highlightColor,
   color: props.textColor,
   fontFamily: props.fontFamily,
-  fontSize: props.fontSize
+  fontSize: props.fontSize,
 };
 
 const typingSpeedMap: ITypingSpeedMap = {
@@ -101,9 +103,13 @@ onMounted(() => {
   typeEffect();
 });
 
-watch(() => isAnimationInProgress.value, (newValue) => {
-  animationRepeatCount.value = newValue ? 'infinite' : 0;
-});
+watch(
+  () => isAnimationInProgress.value,
+  (newValue) => {
+    animationRepeatCount.value = newValue ? "infinite" : 0;
+    if (!newValue) emit("typeEnded");
+  },
+);
 </script>
 
 <style scoped>
@@ -123,7 +129,6 @@ watch(() => isAnimationInProgress.value, (newValue) => {
 }
 
 @keyframes blink {
-
   0%,
   45% {
     border-color: transparent;
